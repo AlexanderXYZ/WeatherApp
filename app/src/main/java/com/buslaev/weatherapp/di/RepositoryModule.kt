@@ -1,5 +1,6 @@
 package com.buslaev.weatherapp.di
 
+import com.buslaev.weatherapp.data.mapper.WeatherMapper
 import com.buslaev.weatherapp.data.remote.WeatherApi
 import com.buslaev.weatherapp.data.repository.WeatherRepositoryImpl
 import com.buslaev.weatherapp.domain.repository.WeatherRepository
@@ -17,5 +18,5 @@ object RepositoryModule {
     @Singleton
     fun provideWeatherRepository(
         api: WeatherApi
-    ): WeatherRepository = WeatherRepositoryImpl(api = api)
+    ): WeatherRepository = WeatherRepositoryImpl(api = api, mapper = WeatherMapper())
 }
